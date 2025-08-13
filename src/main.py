@@ -91,13 +91,11 @@ async def google_search(query: str) -> str:
     # Build gemini command with Google search prompt
     cmd: list[str] = [
       GEMINI_CLI_PATH,
-      "--ide-mode-feature",
-      "false",
       "--allowed-mcp-server-names",
       "-y",
       "-s",
       "-p",
-      query + "\n Please always include source information and cite where the information comes from.",
+      query + "\n MUST Use the gemini GoogleSearch tool to search for this information. Please always include source information and cite where the information comes from.",
     ]
 
     logger.info(f"Executing gemini search: {' '.join(cmd)}")
@@ -159,5 +157,10 @@ async def _check_gemini_availability():
   logger.debug("Gemini CLI is available")
 
 
-if __name__ == "__main__":
+def main():
+  """Entry point for the MCP server."""
   mcp.run()
+
+
+if __name__ == "__main__":
+  main()
