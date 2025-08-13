@@ -1,12 +1,14 @@
 [project]
-name = "gemini-google-search"
+name = "mcp-gemini-google-search"
 version = "0.1.0"
-description = "A Python project using uv, ruff, and pytest."
+description = "MCP server providing AI-powered Google search functionality using Gemini"
 requires-python = ">=3.12"
 dependencies = [
     "mcp>=1.0.0",
-    "markdown-it-py>=3.0.0",
 ]
+
+[project.scripts]
+mcp-gemini-google-search = "src.main:main"
 
 [tool.uv]
 dev-dependencies = [
